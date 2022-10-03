@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MovieColabs</string>
+
+    <string name="button">Click Button</string>
+    <string name="title">Logout</string>
+    <string name="dialogMsg">Do you want to Logout ? </string>
 </resources>
