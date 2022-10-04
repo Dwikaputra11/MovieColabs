@@ -3,7 +3,6 @@ package com.example.moviecolabs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.moviecolabs.databinding.ActivityGatStartedBinding
 import com.example.moviecolabs.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -16,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.ivBack.setOnClickListener {
-            val intentLogin = Intent(this, GatStartedActivity::class.java)
+            val intentLogin = Intent(this, GetStartedActivity::class.java)
             startActivity(intentLogin)
         }
 

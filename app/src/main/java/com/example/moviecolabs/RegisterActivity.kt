@@ -3,8 +3,6 @@ package com.example.moviecolabs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.moviecolabs.databinding.ActivityGatStartedBinding
-import com.example.moviecolabs.databinding.ActivityLoginBinding
 import com.example.moviecolabs.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {

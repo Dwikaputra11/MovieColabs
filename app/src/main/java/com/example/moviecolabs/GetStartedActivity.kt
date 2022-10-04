@@ -1,20 +1,17 @@
 package com.example.moviecolabs
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import com.example.moviecolabs.databinding.ActivityGatStartedBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.moviecolabs.databinding.ActivityGetStartedBinding
 
-class GatStartedActivity : AppCompatActivity() {
+class GetStartedActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityGatStartedBinding
+    lateinit var binding: ActivityGetStartedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGatStartedBinding.inflate(layoutInflater)
+        binding = ActivityGetStartedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        Log.d(TAG, "Thread Started")
 

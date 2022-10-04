@@ -10,7 +10,7 @@
     android:padding="20dp"
     android:gravity="center"
     android:background="@color/secondary"
-    tools:context=".GatStartedActivity">
+    tools:context=".GetStartedActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="300dp"

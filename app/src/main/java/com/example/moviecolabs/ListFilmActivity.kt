@@ -1,13 +1,17 @@
 package com.example.moviecolabs
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.moviecolabs.Util.MenuQuery
 import com.example.moviecolabs.adapter.AdapterFilm
+import com.example.moviecolabs.data.Film
 import com.example.moviecolabs.databinding.ActivityListFilmBinding
+import com.example.moviecolabs.model.ResponseFilm
 import com.example.moviecolabs.model.ResponseFilmItem
 import com.example.moviecolabs.service.ApiClient
 import com.example.moviecolabs.viewmodel.ViewModelFilm
@@ -23,14 +27,14 @@ class ListFilmActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = ActivityListFilmBinding.inflate(layoutInflater)
+        binding = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
         showFilm()
 
     }
 
     private fun showFilm(){
-        filmVM =ViewModelProvider(this)[ViewModelFilm::class.java]
+        filmVM = ViewModelProvider(this)[ViewModelFilm::class.java]
         filmVM.getCallApiFilm()
         adapterFilm = AdapterFilm()
         filmVM.getLiveDataFilm().observe(this, Observer {
@@ -41,31 +45,17 @@ class ListFilmActivity : AppCompatActivity() {
 
         binding.rvFilm.adapter = adapterFilm
         binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-    }
 
-//    private fun showFilm(){
-//        ApiClient.instance.getAllFilm()
-//            .enqueue(object : Callback<List<ResponseFilmItem>>{
-//                override fun onResponse(
-//                    call: Call<List<ResponseFilmItem>>,
-//                    response: Response<List<ResponseFilmItem>>
-//                ) {
-//                    if (response.isSuccessful){
-//
-//                    }else{
-//                        Toast.makeText(this@ListFilmActivity, "Data Kosong", Toast.LENGTH_SHORT).show()
-//
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<List<ResponseFilmItem>>, t: Throwable) {
-//                    Toast.makeText(this@ListFilmActivity, "Terjadi Kesalahan Data", Toast.LENGTH_SHORT).show()
-//                }
-//
-//            })
-//    }
-
-    fun updateFilm(){
-
+        adapterFilm.setOnItemClickListener(object : AdapterFilm.OnItemClickListener{
+            override fun onItemClick(menu: MenuQuery, film: ResponseFilmItem) {
+                if(menu == MenuQuery.UPDATE){
+                    val mFilm = Film(film.name, film.image, film.director, film.description)
+                    val intent = Intent(this@ListFilmActivity, UpdateFilmActivity::class.java)
+                    intent.putExtra("film", mFilm)
+                    intent.putExtra("id", film.id)
+                    startActivity(intent)
+                }
+            }
+        })
     }
 }

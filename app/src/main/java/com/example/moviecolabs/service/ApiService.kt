@@ -13,5 +13,5 @@ interface ApiService {
     fun getAllFilm(): Call<List<ResponseFilmItem>>
 
     @PUT("film/{id}")
-    fun updateFilm(@Path("id") id: String, @Body film: Film): Call<List<ResponseFilmItem>>
+    fun updateFilm(@Path("id") id: String, @Body film: Film): Call<ResponseFilmItem>
 }
