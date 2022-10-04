@@ -22,7 +22,7 @@ class adapterFilm(var listFilm : List<getResponFilmItem>):RecyclerView.Adapter<a
         holder.binding.tvdate.text = listFilm[position].date
         holder.binding.tvdirec.text = listFilm[position].director
         holder.binding.tvdesc.text = listFilm[position].description
-        Glide.with(holder.itemView).load(listFilm[position].image).into(holder.binding.tvImg)
+//        Glide.with(holder.itemView).load(listFilm[position].image).into(holder.binding.tvImg)
     }
 
     override fun getItemCount(): Int {
