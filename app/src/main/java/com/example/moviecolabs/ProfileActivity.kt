@@ -21,10 +21,10 @@ class ProfileActivity : AppCompatActivity() {
             Context.MODE_PRIVATE)
 
         binding.btnLogout.setOnClickListener {
-            alerDialog()
+            alertDialog()
         }
     }
-    fun alerDialog(){
+    fun alertDialog(){
         val builder = AlertDialog.Builder(this)
 
 //            set tittle of alert dialog box

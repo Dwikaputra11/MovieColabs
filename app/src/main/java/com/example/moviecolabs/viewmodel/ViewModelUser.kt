@@ -4,17 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviecolabs.model.DataUser
 import com.example.moviecolabs.model.ResponseUserItem
-import com.example.moviecolabs.network.RetrofitUser
+import com.example.moviecolabs.service.RetrofitUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ViewModelUser: ViewModel() {
-    lateinit var postLDUser: MutableLiveData<ResponseUserItem>
-
-    init {
-        postLDUser = MutableLiveData()
-    }
+    var postLDUser: MutableLiveData<ResponseUserItem> = MutableLiveData()
 
     fun postLiveDataUser(): MutableLiveData<ResponseUserItem> {
         return postLDUser

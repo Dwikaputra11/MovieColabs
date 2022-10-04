@@ -10,7 +10,7 @@ import com.example.moviecolabs.viewmodel.ViewModelUser
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityRegisterBinding
+    private lateinit var binding : ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +29,10 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            var name = binding.etUsername.text.toString()
-            var username = binding.etEmail.text.toString()
-            var password = binding.etPassword.text.toString()
-            var repeatPassword = binding.etConfirmPassword.text.toString()
+            val name = binding.etUsername.text.toString()
+            val username = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            val repeatPassword = binding.etConfirmPassword.text.toString()
 
             if (password == repeatPassword) {
                 addUser(name,username,password)
@@ -45,13 +45,13 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    fun addUser(name: String, username: String, password: String) {
-        val viewModel = ViewModelProvider(this).get(ViewModelUser::class.java)
+    private fun addUser(name: String, username: String, password: String) {
+        val viewModel = ViewModelProvider(this)[ViewModelUser::class.java]
         viewModel.callPostUser(name,username, password)
-        viewModel.postLiveDataUser().observe(this, {
+        viewModel.postLiveDataUser().observe(this) {
             if (it != null) {
                 Toast.makeText(this, "Akun Berhasil Terdaftar", Toast.LENGTH_SHORT).show()
             }
-        })
+        }
     }
 }

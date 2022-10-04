@@ -1,4 +1,4 @@
-package com.example.moviecolabs.network
+package com.example.moviecolabs.service
 
 import com.example.moviecolabs.model.DataUser
 import com.example.moviecolabs.model.ResponseUserItem

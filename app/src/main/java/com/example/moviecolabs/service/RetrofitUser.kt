@@ -1,4 +1,4 @@
-package com.example.moviecolabs.network
+package com.example.moviecolabs.service
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
