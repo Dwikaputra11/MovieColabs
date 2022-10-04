@@ -3,7 +3,7 @@ package com.example.moviecolabs.model
 
 import com.google.gson.annotations.SerializedName
 
-data class getResponFilmItem(
+data class ResponseFilmItem(
     @SerializedName("date")
     val date: String,
     @SerializedName("description")
