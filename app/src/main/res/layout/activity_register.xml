@@ -110,13 +110,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_bg"
+                android:fontFamily="@font/poppins_medium"
                 android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_bg"
-                android:textStyle="bold"
                 android:textSize="18sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_marginVertical="15dp"
