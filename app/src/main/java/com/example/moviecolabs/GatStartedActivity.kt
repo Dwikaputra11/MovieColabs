@@ -28,7 +28,7 @@ class GatStartedActivity : AppCompatActivity() {
                 val intentLogin = Intent(this, LoginActivity::class.java)
                 startActivity(intentLogin)
             } else {
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,ProfileActivity::class.java))
             }
         }
     }
