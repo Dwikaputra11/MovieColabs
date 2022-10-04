@@ -66,13 +66,6 @@
         android:layout_centerInParent="true"
         android:layout_gravity="center" />
 
-    <com.ouattararomuald.slider.ImageSlider
-        android:id="@+id/image_slider"
-        android:layout_below="@+id/idViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFilm"
         android:layout_width="match_parent"
