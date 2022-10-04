@@ -1,26 +1,30 @@
 package com.example.moviecolabs
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.moviecolabs.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
-
+    private lateinit var sharedPreferences: SharedPreferences
     lateinit var binding : ActivityProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPreferences = this.getSharedPreferences("datauser",
+            Context.MODE_PRIVATE)
 
         binding.btnLogout.setOnClickListener {
-            alerDialog()
+            alertDialog()
         }
     }
-    fun alerDialog(){
+    fun alertDialog(){
         val builder = AlertDialog.Builder(this)
 
 //            set tittle of alert dialog box
@@ -37,6 +41,9 @@ class ProfileActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes"){dialogInterface, which->
             val intentLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentLogin)
+            val saveUser = sharedPreferences.edit()
+            saveUser.clear()
+            saveUser.apply()
             Toast.makeText(this,"Anda Logout", Toast.LENGTH_LONG).show()
         }
 //            creating dialog box

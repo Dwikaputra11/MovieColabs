@@ -1,9 +1,10 @@
 package com.example.moviecolabs.viewmodel
 
-import android.view.View
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.moviecolabs.model.getResponFilmItem
+import com.example.moviecolabs.data.Film
+import com.example.moviecolabs.model.ResponseFilmItem
 import com.example.moviecolabs.service.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,30 +12,56 @@ import retrofit2.Response
 
 class ViewModelFilm : ViewModel() {
 
-    lateinit var getDataFilm : MutableLiveData<List<getResponFilmItem>>
+    private var liveDataFilm : MutableLiveData<List<ResponseFilmItem>> = MutableLiveData()
+    private var updateFilm : MutableLiveData<ResponseFilmItem> = MutableLiveData()
 
-    init {
-        getDataFilm = MutableLiveData()
+    fun getLiveDataFilm() : MutableLiveData<List<ResponseFilmItem>>{
+        return liveDataFilm
     }
-    fun getLiveDatafilm() : MutableLiveData<List<getResponFilmItem>>{
-        return getDataFilm
-    }
-    fun getFilm(){
+    fun getCallApiFilm(){
         ApiClient.instance.getAllFilm()
-            .enqueue(object : Callback<List<getResponFilmItem>>{
+            .enqueue(object : Callback<List<ResponseFilmItem>>{
                 override fun onResponse(
-                    call: Call<List<getResponFilmItem>>,
-                    response: Response<List<getResponFilmItem>>
+                    call: Call<List<ResponseFilmItem>>,
+                    response: Response<List<ResponseFilmItem>>
                 ) {
                     if (response.isSuccessful){
-                        getDataFilm.postValue(response.body())
+                        liveDataFilm.postValue(response.body())
                     }else{
-                        getDataFilm.postValue(null)
+                        liveDataFilm.postValue(null)
+                    }
+                }
+                override fun onFailure(call: Call<List<ResponseFilmItem>>, t: Throwable) {
+                    liveDataFilm.postValue(null)
+                }
+
+            })
+    }
+
+    fun getUpdateFilm():MutableLiveData<ResponseFilmItem>{
+        return updateFilm
+    }
+
+    fun updateCallApiFilm(id: String,film: Film){
+        ApiClient.instance.updateFilm(id, film)
+            .enqueue(object : Callback<ResponseFilmItem>{
+                override fun onResponse(
+                    call: Call<ResponseFilmItem>,
+                    response: Response<ResponseFilmItem>
+                ) {
+                    if(response.isSuccessful){
+                        Log.d("TAG", "onResponse: Berhasil")
+                        Log.d("TAG", "onResponse: ${response.body()}")
+                        updateFilm.postValue(response.body())
+                    }else{
+                        Log.d("TAG", "onResponse: Gagal")
+                        updateFilm.postValue(null)
                     }
                 }
 
-                override fun onFailure(call: Call<List<getResponFilmItem>>, t: Throwable) {
-                    getDataFilm.postValue(null)
+                override fun onFailure(call: Call<ResponseFilmItem>, t: Throwable) {
+                    Log.d("TAG", "onResponse: Gagal Fail")
+                    updateFilm.postValue(null)
                 }
 
             })
