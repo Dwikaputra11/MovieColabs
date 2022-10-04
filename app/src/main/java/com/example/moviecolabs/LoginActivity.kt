@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             Context.MODE_PRIVATE)
 
         binding.ivBack.setOnClickListener {
-            val intentLogin = Intent(this, GatStartedActivity::class.java)
+            val intentLogin = Intent(this, GetStartedActivity::class.java)
             startActivity(intentLogin)
         }
 
@@ -38,9 +38,9 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-            var username = binding.etEmail.text.toString()
-            var password = binding.etPassword.text.toString()
-            var saveUser = sharedPreferences.edit()
+            val username = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            val saveUser = sharedPreferences.edit()
 
             RetrofitUser.instance.getAllUser()
                 .enqueue(object : Callback<List<ResponseUserItem>> {

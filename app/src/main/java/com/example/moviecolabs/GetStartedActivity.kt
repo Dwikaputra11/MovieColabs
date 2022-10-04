@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviecolabs.databinding.ActivityGetStartedBinding
 
-class GatStartedActivity : AppCompatActivity() {
+class GetStartedActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     lateinit var binding: ActivityGetStartedBinding
 
