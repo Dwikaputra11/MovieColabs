@@ -1,14 +1,10 @@
 package com.example.moviecolabs
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.moviecolabs.databinding.ActivityGatStartedBinding
-import com.example.moviecolabs.databinding.ActivityLoginBinding
 import com.example.moviecolabs.databinding.ActivityRegisterBinding
 import com.example.moviecolabs.viewmodel.ViewModelUser
 

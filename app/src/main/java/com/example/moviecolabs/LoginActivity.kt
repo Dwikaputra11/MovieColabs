@@ -5,15 +5,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.example.moviecolabs.databinding.ActivityGatStartedBinding
 import com.example.moviecolabs.databinding.ActivityLoginBinding
-import com.example.moviecolabs.model.DataUser
 import com.example.moviecolabs.model.ResponseUserItem
 import com.example.moviecolabs.network.RetrofitUser
-import com.example.moviecolabs.viewmodel.ViewModelUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     lateinit var binding: ActivityLoginBinding
-    lateinit var dataUser: List<ResponseUserItem>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -57,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
                             var userlist = response.body()?.filter {
                                 it.username == username && it.password == password
                             } as List<ResponseUserItem>
-//                            Log.d("TAG", "onResponse: $user")
                             if (!userlist.indices.isEmpty()) {
                                 var user = userlist.first {
                                     it.username == username && it.password == password
