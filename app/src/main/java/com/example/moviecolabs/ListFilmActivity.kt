@@ -2,6 +2,7 @@ package com.example.moviecolabs
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -26,13 +27,14 @@ class ListFilmActivity : AppCompatActivity() {
     lateinit var binding : ActivityListFilmBinding
     private lateinit var filmVM: ViewModelFilm
     private lateinit var adapterFilm: AdapterFilm
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val username = intent.getStringExtra("username")
+        sharedPref = this.getSharedPreferences("datauser", MODE_PRIVATE)
+        val username = sharedPref.getString("username","")
         binding.tvUsername.text = username
         binding.imgUser.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))

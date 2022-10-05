@@ -3,14 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/activity_add_film_acticity.xml" value="0.3482789855072464" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/activity_get_started.xml" value="0.3482789855072464" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/activity_list_film.xml" value="0.3482789855072464" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/activity_login.xml" value="0.3482789855072464" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/activity_update_film.xml" value="0.3482789855072464" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MovieColabs/app/src/main/res/layout/item_film.xml" value="0.3482789855072464" />
         <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/activity_list_film.xml" value="0.25677083333333334" />
+        <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/activity_login.xml" value="0.25677083333333334" />
         <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/activity_main.xml" value="0.25677083333333334" />
+        <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/activity_register.xml" value="0.25677083333333334" />
         <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/activity_update_film.xml" value="0.25677083333333334" />
         <entry key="..\:/dev/AndroidStudioProjects/Binar Academy/Dengan Git Config/MovieColabs/app/src/main/res/layout/item_film.xml" value="0.25677083333333334" />
       </map>
