@@ -17,6 +17,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val username = intent.getStringExtra("username")
+        binding.tvUsername.text = username
         sharedPreferences = this.getSharedPreferences("datauser",
             Context.MODE_PRIVATE)
 
