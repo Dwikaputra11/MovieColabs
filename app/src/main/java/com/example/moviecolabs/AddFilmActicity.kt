@@ -22,7 +22,7 @@ class AddFilmActicity : AppCompatActivity() {
             var img = binding.etImg.text.toString()
             var direc = binding.etDirector.text.toString()
             var desc = binding.etDesc.text.toString()
-            addDataFilm(name,img,direc,direc)
+            addDataFilm(name,img,direc,desc)
         }
     }
     fun addDataFilm(name : String,image : String,director : String, description : String){
