@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="@color/secondary"
-    tools:context=".UpdateFilmActivity">
-
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"/>
+    tools:context=".AddFilmActicity">
 
     <TextView
-        android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Updete Your Movie \nHere"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins_semibold"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Insert Your Movie \nHere"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
         android:layout_centerHorizontal="true"
@@ -41,7 +33,7 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/idNote"
@@ -83,21 +75,28 @@
                 android:textColorHint="@color/darkBlue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/etImg"
+                android:hint="Add your Img"
+                android:textSize="25sp"
+                android:textColorHint="@color/darkBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnadd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_bg"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Update"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Insert"
         android:textAllCaps="false"
         android:textSize="18sp" />
 

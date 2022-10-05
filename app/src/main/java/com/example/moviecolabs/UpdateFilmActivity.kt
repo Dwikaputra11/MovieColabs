@@ -30,6 +30,11 @@ class UpdateFilmActivity : AppCompatActivity() {
             updateFilm()
             startActivity(Intent(this, ListFilmActivity::class.java))
         }
+
+        binding.ivBack.setOnClickListener {
+            val intentLogin = Intent(this, ListFilmActivity::class.java)
+            startActivity(intentLogin)
+        }
     }
 
     private fun updateFilm(){
