@@ -3,6 +3,6 @@ Collaborating project for Task from Android Class Binar Academy Chapter 5 to mak
 
 # Pembagian Tugas:
 <p>Dwika (Delete & Update)</p>
-<p>Padi(UI Register & Login)</p>
-<p>Willy(Post & Get)</p>
-<p>Farhan(Post & Get User API)</p>
+<p>Padi (UI Register & Login)</p>
+<p>Willy (Post & Get)</p>
+<p>Farhan (Post & Get User API)</p>
