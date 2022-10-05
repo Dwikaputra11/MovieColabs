@@ -1,9 +1,11 @@
 package com.example.moviecolabs
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,8 +56,31 @@ class ListFilmActivity : AppCompatActivity() {
                     intent.putExtra("film", mFilm)
                     intent.putExtra("id", film.id)
                     startActivity(intent)
+                }else{
+                    if(isFinishing){
+                        showAlertDialog(film.id)
+                    }
                 }
             }
         })
+    }
+
+    fun showAlertDialog(id:String){
+        val builder = AlertDialog.Builder(this)
+        builder.setPositiveButton("Yes") { _, _ ->
+            run {
+                filmVM.deleteCallApiFilm(id)
+                filmVM.getDeleteFilm().observe(this){
+                    if(it != null){
+                        Toast.makeText(this, "Delete Success", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            }
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete Film")
+        builder.setMessage("Are you sure to delete this film?")
+        builder.create().show()
     }
 }
