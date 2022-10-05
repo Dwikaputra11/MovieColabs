@@ -6,3 +6,4 @@ Collaborating project for Task from Android Class Binar Academy Chapter 5 to mak
 <p>Padi (UI Register & Login)</p>
 <p>Willy (Post & Get)</p>
 <p>Farhan (Post & Get User API)</p>
+<p>Zan (Costum List & UI Profile)</p>
