@@ -31,6 +31,12 @@ class ListFilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val username = intent.getStringExtra("username")
+        binding.tvUsername.text = username
+        binding.imgUser.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
         showFilm()
 
     }
@@ -46,7 +52,7 @@ class ListFilmActivity : AppCompatActivity() {
         })
 
         binding.rvFilm.adapter = adapterFilm
-        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         adapterFilm.setOnItemClickListener(object : AdapterFilm.OnItemClickListener{
             override fun onItemClick(menu: MenuQuery, film: ResponseFilmItem) {
@@ -57,7 +63,7 @@ class ListFilmActivity : AppCompatActivity() {
                     intent.putExtra("id", film.id)
                     startActivity(intent)
                 }else{
-                    if(isFinishing){
+                    if(!isFinishing){
                         showAlertDialog(film.id)
                     }
                 }
