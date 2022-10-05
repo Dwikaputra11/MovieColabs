@@ -46,7 +46,7 @@ class ListFilmActivity : AppCompatActivity() {
         })
 
         binding.rvFilm.adapter = adapterFilm
-        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         adapterFilm.setOnItemClickListener(object : AdapterFilm.OnItemClickListener{
             override fun onItemClick(menu: MenuQuery, film: ResponseFilmItem) {
