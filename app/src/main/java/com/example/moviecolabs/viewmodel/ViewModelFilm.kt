@@ -15,6 +15,7 @@ class ViewModelFilm : ViewModel() {
     private var liveDataFilm : MutableLiveData<List<ResponseFilmItem>> = MutableLiveData()
     private var updateFilm : MutableLiveData<ResponseFilmItem> = MutableLiveData()
     private var deleteFilm: MutableLiveData<ResponseFilmItem> = MutableLiveData()
+    private var addFilm : MutableLiveData<ResponseFilmItem> = MutableLiveData()
 
     fun getLiveDataFilm() : MutableLiveData<List<ResponseFilmItem>>{
         return liveDataFilm
@@ -89,6 +90,28 @@ class ViewModelFilm : ViewModel() {
 
                 override fun onFailure(call: Call<ResponseFilmItem>, t: Throwable) {
                     deleteFilm.postValue(null)
+                }
+
+            })
+    }
+    fun getAddFilm(): MutableLiveData<ResponseFilmItem> = addFilm
+
+    fun addPostApiFilm(name : String,image : String,director : String, description : String){
+        ApiClient.instance.addFilm(Film(name,image,director,description))
+            .enqueue(object  :Callback<ResponseFilmItem>{
+                override fun onResponse(
+                    call: Call<ResponseFilmItem>,
+                    response: Response<ResponseFilmItem>
+                ) {
+                    if (response.isSuccessful){
+                        addFilm.postValue(response.body())
+                    }else{
+                        addFilm.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseFilmItem>, t: Throwable) {
+                    addFilm.postValue(null)
                 }
 
             })

@@ -38,7 +38,9 @@ class ListFilmActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
         showFilm()
-
+        binding.btntambah.setOnClickListener {
+            startActivity(Intent(this, AddFilmActicity::class.java))
+        }
     }
 
     private fun showFilm(){
