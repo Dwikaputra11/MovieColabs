@@ -32,7 +32,9 @@ class ListFilmActivity : AppCompatActivity() {
         binding = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
         showFilm()
-
+        binding.btntambah.setOnClickListener {
+            startActivity(Intent(this, AddFilmActicity::class.java))
+        }
     }
 
     private fun showFilm(){

@@ -1,5 +1,6 @@
 package com.example.moviecolabs.service
 
+import android.webkit.WebResourceRequest
 import com.example.moviecolabs.data.Film
 import com.example.moviecolabs.model.ResponseFilmItem
 import retrofit2.Call
@@ -14,4 +15,7 @@ interface ApiService {
 
     @DELETE("film/{id}")
     fun deleteFilm(@Path("id") id: String): Call<ResponseFilmItem>
+
+    @POST("film")
+    fun addFilm(@Body request: Film) : Call<ResponseFilmItem>
 }
