@@ -9,6 +9,7 @@
     tools:context=".ListFilmActivity">
 
     <LinearLayout
+        android:id="@+id/ly"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -56,6 +57,12 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_below="@+id/ly"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_banner"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFilm"
