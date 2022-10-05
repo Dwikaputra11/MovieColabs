@@ -1,5 +1,6 @@
 package com.example.moviecolabs
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,7 @@ class AddFilmActicity : AppCompatActivity() {
         viewmodel.addPostApiFilm(name,image,director,description)
         viewmodel.getAddFilm().observe(this, Observer {
             if (it !=null){
+                startActivity(Intent(this, ListFilmActivity::class.java))
                 Toast.makeText(this, "insert is success", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "insert is filed", Toast.LENGTH_SHORT).show()
