@@ -25,7 +25,7 @@ class GetStartedActivity : AppCompatActivity() {
                 val intentLogin = Intent(this, LoginActivity::class.java)
                 startActivity(intentLogin)
             } else {
-                startActivity(Intent(this,ProfileActivity::class.java))
+                startActivity(Intent(this,ListFilmActivity::class.java))
             }
         }
     }
