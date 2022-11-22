@@ -25,7 +25,9 @@ class GetStartedActivity : AppCompatActivity() {
                 val intentLogin = Intent(this, LoginActivity::class.java)
                 startActivity(intentLogin)
             } else {
-                startActivity(Intent(this,ListFilmActivity::class.java))
+                val intent = Intent(this,ListFilmActivity::class.java)
+                intent.putExtra("username", sharedPreferences.getString("username", ""))
+                startActivity(intent)
             }
         }
     }

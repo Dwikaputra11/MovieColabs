@@ -2,6 +2,7 @@ package com.example.moviecolabs
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -26,11 +27,18 @@ class ListFilmActivity : AppCompatActivity() {
     lateinit var binding : ActivityListFilmBinding
     private lateinit var filmVM: ViewModelFilm
     private lateinit var adapterFilm: AdapterFilm
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPref = this.getSharedPreferences("datauser", MODE_PRIVATE)
+        val username = sharedPref.getString("username","")
+        binding.tvUsername.text = username
+        binding.imgUser.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
         showFilm()
         binding.btntambah.setOnClickListener {
             startActivity(Intent(this, AddFilmActicity::class.java))
@@ -48,7 +56,7 @@ class ListFilmActivity : AppCompatActivity() {
         })
 
         binding.rvFilm.adapter = adapterFilm
-        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvFilm.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         adapterFilm.setOnItemClickListener(object : AdapterFilm.OnItemClickListener{
             override fun onItemClick(menu: MenuQuery, film: ResponseFilmItem) {
@@ -59,7 +67,7 @@ class ListFilmActivity : AppCompatActivity() {
                     intent.putExtra("id", film.id)
                     startActivity(intent)
                 }else{
-                    if(isFinishing){
+                    if(!isFinishing){
                         showAlertDialog(film.id)
                     }
                 }

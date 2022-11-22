@@ -29,15 +29,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            val name = binding.etUsername.text.toString()
-            val username = binding.etEmail.text.toString()
+            val name = binding.etEmail.text.toString()
+            val username = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()
             val repeatPassword = binding.etConfirmPassword.text.toString()
 
             if (password == repeatPassword) {
                 addUser(name,username,password)
-                startActivity(Intent(this, LoginActivity::class.java))
-                Toast.makeText(this, "Akun Berhasil Terdaftar", Toast.LENGTH_SHORT).show()
             } else if (password != repeatPassword) {
                 Toast.makeText(this, "Password Tidak Sama", Toast.LENGTH_SHORT).show()
 
@@ -51,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.postLiveDataUser().observe(this) {
             if (it != null) {
                 Toast.makeText(this, "Akun Berhasil Terdaftar", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
             }
         }
     }

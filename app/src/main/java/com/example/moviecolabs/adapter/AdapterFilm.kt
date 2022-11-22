@@ -65,7 +65,7 @@ class AdapterFilm:RecyclerView.Adapter<AdapterFilm.ViewHolder>() {
         holder.binding.tvdesc.text = differ.currentList[position].description
         Glide.with(holder.binding.root.context)
             .load(differ.currentList[position].image)
-            .placeholder(R.drawable.film)
+            .placeholder(R.drawable.play_store_512)
             .into(holder.binding.tvImg)
     }
 

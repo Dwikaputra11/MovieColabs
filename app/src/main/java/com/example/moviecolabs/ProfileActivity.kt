@@ -20,11 +20,14 @@ class ProfileActivity : AppCompatActivity() {
         sharedPreferences = this.getSharedPreferences("datauser",
             Context.MODE_PRIVATE)
 
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this, ListFilmActivity::class.java))
+        }
         binding.btnLogout.setOnClickListener {
             alertDialog()
         }
     }
-    fun alertDialog(){
+    private fun alertDialog(){
         val builder = AlertDialog.Builder(this)
 
 //            set tittle of alert dialog box
